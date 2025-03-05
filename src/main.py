@@ -117,7 +117,7 @@ def menu():
 
         elif opcao == "11":
             print("11 - Limpar")
-            os.system('clear')
+            os.system("cls" if os.name == "nt" else "clear")
             prints()
         elif opcao == "0":
             print("0 - Sair")
