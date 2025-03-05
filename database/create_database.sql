@@ -42,7 +42,9 @@ CREATE TABLE Fatura (
 CREATE TABLE Servico_Fatura (
     id_servico INT,
     id_fatura INT,
-    PRIMARY KEY (id_servico, id_fatura),
+    id_funcionario INT,
+    PRIMARY KEY (id_servico, id_fatura, id_funcionario),
     FOREIGN KEY (id_servico) REFERENCES Servico(id_servico),
-    FOREIGN KEY (id_fatura) REFERENCES Fatura(id_fatura)
+    FOREIGN KEY (id_fatura) REFERENCES Fatura(id_fatura),
+    FOREIGN KEY (id_funcionario) REFERENCES Funcionario(id_funcionario)
 );

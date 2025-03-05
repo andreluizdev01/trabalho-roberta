@@ -39,12 +39,7 @@ def listar_clientes_por_funcionario(id_funcionario):
         FROM Cliente c
         JOIN Fatura f ON c.id_cliente = f.id_cliente
         JOIN Servico_Fatura sf ON f.id_fatura = sf.id_fatura
-        JOIN Servico s ON sf.id_servico = s.id_servico
-        WHERE s.id_servico IN (
-            SELECT id_servico FROM Servico_Fatura sf2
-            JOIN Fatura f2 ON sf2.id_fatura = f2.id_fatura
-            WHERE f2.id_cliente = c.id_cliente
-        )
+        WHERE sf.id_funcionario = %s
     """
     cursor.execute(query, (id_funcionario,))
     resultados = cursor.fetchall()
