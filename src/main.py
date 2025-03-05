@@ -1,4 +1,15 @@
-from queries import listar_servicos_por_data
+from queries import (
+    listar_servicos_por_data,
+    listar_veiculos_por_cliente,
+    listar_clientes_por_funcionario,
+    listar_servicos_por_veiculo,
+    valor_total_faturas_por_cliente,
+    listar_nome_e_contato_dos_funcionarios,
+    listar_media_do_valor_dos_servicos,
+    listar_veiculos_atendidos_por_mes,
+    listar_total_caixa_por_periodo,
+    listar_dados_de_fatura,
+)
 import os
 
 
@@ -28,6 +39,14 @@ def menu():
             print("1 - Listar serviços por data")
         elif opcao == "2":
             print("2 - Listar veículos por cliente")
+            id_cliente = input("Digite o ID do cliente: ")
+            veiculos = listar_veiculos_por_cliente(id_cliente)
+            if veiculos:
+                print("\nVeículos do cliente:")
+                for veiculo in veiculos:
+                    print(veiculo)
+            else:
+                print("Nenhum veículo encontrado para este cliente.")
         elif opcao == "3":
             print("3 - Listar clientes por funcionário")
         elif opcao == "4":
@@ -48,7 +67,6 @@ def menu():
             print("11 - Limpar")
             os.system('clear')
             prints()
-
         elif opcao == "0":
             print("0 - Sair")
 
